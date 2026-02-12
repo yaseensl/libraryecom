@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Library()</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="login.html" id="login-link">Login</a></li>
+        </ul>
+        <div id="logout-container"></div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-hero">
+        <h1>About Library()</h1>
+        <p class="about-subtitle">Your online destination for all your reading needs</p>
+      </section>
+
+      <section class="about-content">
+        <div class="about-section">
+          <h2>Our Story</h2>
+          <p>
+            Welcome to <strong>Library()</strong> – your online destination for all your reading needs. 
+            Our mission is to make books accessible to everyone, anytime, anywhere.
+          </p>
+          <p>
+            At Library(), we offer a wide variety of genres, from classic literature to modern bestsellers, 
+            ensuring that every reader finds something they love. Whether you're browsing for your next great read 
+            or exploring new authors, our user-friendly platform makes discovering books a pleasure.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h2>Our Mission</h2>
+          <p>
+            We believe in creating a community of book lovers. Our platform allows you to ask questions, 
+            leave reviews, and ultimately create a safe space for everyone who shares our passion for reading. 
+            Your love of books is what drives us.
+          </p>
+        </div>
+
+        <div class="about-features">
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Vast Selection</h3>
+            <p>Thousands of titles across every genre imaginable</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Fast Delivery</h3>
+            <p>Quick shipping to get your books to you faster</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Community</h3>
+            <p>Connect with fellow readers and share reviews</p>
+          </div>
+
+        <div class="about-section">
+          <h2>Why Choose Library()?</h2>
+          <p>
+            We're more than just a bookstore. We're a community dedicated to fostering a love of reading 
+            and making literature accessible to everyone. Our carefully curated selection includes classics, 
+            bestsellers, hidden gems, and everything in between.
+          </p>
+          <p>
+            Thank you for choosing <strong>Library()</strong> – happy reading!
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Card Section -->
+      <section class="contact-section">
+        <h2>Get In Touch</h2>
+        <p class="contact-intro">Have questions? We'd love to hear from you!</p>
+
+        <div class="contact-cards">
+          <!-- Main Contact Card -->
+          <div class="contact-card primary-contact">
+            <div class="contact-card-header">
+              <div class="contact-avatar">📖</div>
+              <div class="contact-info">
+                <h3>Library() Support</h3>
+                <p class="contact-role">Customer Service Team</p>
+              </div>
+            </div>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div class="contact-text">
+                  <strong>Email</strong>
+                  <a href="mailto:support@library.com">support@library.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-text">
+                  <strong>Phone</strong>
+                  <a href="tel:+15551234567">+1 (510) 123-4567</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div class="contact-text">
+                  <strong>Address</strong>
+                  <span>67 Book Street, San Francisco, CA 94102</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="contact-icon">🕐</span>
+                <div class="contact-text">
+                  <strong>Business Hours</strong>
+                  <span>Mon-Fri: 9am - 6pm PST<br>Sat-Sun: 10am - 4pm PST</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Contact Form -->
+          <div class="contact-form-card">
+            <h3>Send Us a Message</h3>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="John Doe" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <input type="email" id="contact-email" name="email" placeholder="john@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <input type="text" id="contact-subject" name="subject" placeholder="How can we help?" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="Tell us more..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn contact-submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Additional Contact Options -->
+        <div class="contact-options">
+          <div class="contact-option">
+            <span class="option-icon">❓</span>
+            <h4>FAQ</h4>
+            <p>Find answers to common questions</p>
+            <a href="faq.html" class="btn-text">Visit FAQ →</a>
+          </div>
+
+          <div class="contact-option">
+            <span class="option-icon">💬</span>
+            <h4>Live Chat</h4>
+            <p>Chat with us in real-time</p>
+            <button class="btn-text" onclick="alert('Live chat coming soon!')">Start Chat →</button>
+          </div>
+
+          <div class="contact-option">
+            <span class="option-icon">📚</span>
+            <h4>Help Center</h4>
+            <p>Browse our knowledge base</p>
+            <button class="btn-text" onclick="alert('Help center coming soon!')">Learn More →</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Library(). All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+      // andle contact form submission
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const name = document.getElementById('contact-name').value;
+          const email = document.getElementById('contact-email').value;
+          const subject = document.getElementById('contact-subject').value;
+          const message = document.getElementById('contact-message').value;
+          
+          alert(`Thank you for your message, ${name}!\n\nWe'll respond to ${email} within 24 hours.`);
+          contactForm.reset();
+        });
+      }
+    </script>
+  </body>
+</html>

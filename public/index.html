@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library() | Home</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html"class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <!-- Added id to auth link** -->
+          <li><a href="login.html" id="login-link">Login</a></li>
+        </ul>
+        <div id="logout-container"></div>
+      </nav>
+    </header>
+    <main>
+      <section class="banner">
+        <h1>Welcome to Library()</h1>
+        <!-- Added id for personalization** -->
+        <p id="welcome-message">Welcome to our storefront. Browse products, learn more, and start shopping!</p>
+        <a href="products.html" class="btn">Shop Now</a> 
+      </section>
+      
+      <!-- This section now loads dynamically from database -->
+      <section class="new-in">
+        <h2>Featured Books</h2>
+        <!-- Added id and loading message -->
+        <div class="book-list" id="book-list">
+          <p>Loading books...</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Library(). All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>

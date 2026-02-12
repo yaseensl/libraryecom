@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="login.html" id="login-link">Login</a></li>
+      </ul>
+      <div id="logout-container"></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="settings-container">
+      <h1>Account Settings</h1>
+      <p id="welcome-msg">Loading user info...</p>
+
+      <!-- Logout button -->
+      <button id="logout-btn" class="btn" style="display:none;">Logout</button>
+
+      <!-- Change password form -->
+      <div id="change-password-container" style="display:none;">
+        <h2>Change Password</h2>
+        <form id="change-password-form">
+          <label for="current-password">Current Password:</label>
+          <input type="password" id="current-password" required />
+
+          <label for="new-password">New Password:</label>
+          <input type="password" id="new-password" required />
+
+          <button type="submit">Update Password</button>
+        </form>
+        <p id="password-msg"></p>
+      </div>
+
+      <!-- Delete account button -->
+      <div id="delete-account-container" style="display:none;">
+        <h2>Danger Zone</h2>
+        <button id="delete-account-btn" class="danger-btn">Delete Account</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Library(). All rights reserved.</p>
+  </footer>
+
+  <script>
+    async function loadUserInfo() {
+      const loginLink = document.getElementById("login-link");
+      const logoutBtn = document.getElementById("logout-btn");
+      const welcomeMsg = document.getElementById("welcome-msg");
+      const changeContainer = document.getElementById("change-password-container");
+      const deleteContainer = document.getElementById("delete-account-container");
+
+      try {
+        const res = await fetch("/auth/current-user");
+        const data = await res.json();
+
+        if (data.user) {
+          // Hide login link
+          if (loginLink) loginLink.style.display = "none";
+
+          // Show user info
+          if (welcomeMsg) welcomeMsg.textContent = `Welcome, ${data.user.username}! Your email: ${data.user.email}`;
+
+          // Show logout button
+          if (logoutBtn) {
+            logoutBtn.style.display = "inline-block";
+            logoutBtn.addEventListener("click", async () => {
+              await fetch("/auth/logout", { method: "POST" });
+              window.location.href = "login.html";
+            });
+          }
+
+          // Show change password and delete account sections
+          if (changeContainer) changeContainer.style.display = "block";
+          if (deleteContainer) deleteContainer.style.display = "block";
+
+          // Change password form submission
+          const changeForm = document.getElementById("change-password-form");
+          const passwordMsg = document.getElementById("password-msg");
+          changeForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const currentPassword = document.getElementById("current-password").value;
+            const newPassword = document.getElementById("new-password").value;
+
+            try {
+              const res = await fetch("/auth/change-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ currentPassword, newPassword })
+              });
+              const result = await res.json();
+              passwordMsg.textContent = result.message || result.error;
+              passwordMsg.style.color = res.ok ? "green" : "red";
+              if (res.ok) changeForm.reset();
+            } catch (err) {
+              console.error(err);
+              passwordMsg.textContent = "Error updating password";
+              passwordMsg.style.color = "red";
+            }
+          });
+
+          // Delete account button
+          const deleteBtn = document.getElementById("delete-account-btn");
+          deleteBtn.addEventListener("click", async () => {
+            if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+              try {
+                const res = await fetch("/auth/delete-account", { method: "DELETE" });
+                const result = await res.json();
+                alert(result.message);
+                window.location.href = "index.html";
+              } catch (err) {
+                console.error(err);
+                alert("Error deleting account");
+              }
+            }
+          });
+
+        } else {
+          // No user logged in, redirect to login
+          window.location.href = "login.html";
+        }
+      } catch (err) {
+        console.error("Failed to fetch user info:", err);
+        alert("Failed to load user info. Please log in again.");
+        window.location.href = "login.html";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadUserInfo);
+  </script>
+</body>
+</html>

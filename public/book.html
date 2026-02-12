@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book | Library()</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html"class="active">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="login.html" id="login-link">Login</a></li>
+      </ul>
+      <div id="logout-container"></div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Book Info Wrapper -->
+    <div class="book-wrapper">
+      <div class="book-container">
+        <img id="book-cover" src="" alt="Book Cover" class="book-cover-individual" />
+        <div class="book-details">
+          <h1 id="book-title">Book Title</h1>
+          <h3 id="book-author">By Author</h3>
+          <p id="book-description">Book description goes here...</p>
+          <p id="book-price">$0.00</p>
+          <p id="book-rating">★ 0 / 5.0</p>
+          <button id="add-to-cart-btn" class="btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="hidden">
+      <div id="error-message" class="hidden"><h2>Book Not Found</h2>
+      <p>The book you are looking for does not exist.</p></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Library(). All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

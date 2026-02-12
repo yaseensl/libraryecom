@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Library()</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="cart.html"class="active">Cart</a></li>
+        <li><a href="login.html" id="login-link">Login</a></li>
+      </ul>
+      <div id="logout-container"></div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="checkout-container">
+      <h1>Checkout</h1>
+
+      <div class="checkout-sections">
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h2>Order Summary</h2>
+          <div id="order-items"></div>
+          <div class="summary-totals">
+            <p>Subtotal: <span id="subtotal">$0.00</span></p>
+            <p>Tax (10%): <span id="tax">$0.00</span></p>
+            <p class="total-line"><strong>Total: <span id="total">$0.00</span></strong></p>
+          </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="checkout-form-container">
+          <h2>Shipping Information</h2>
+          <form id="checkout-form">
+            <div class="form-group">
+              <label for="shipping-name">Full Name *</label>
+              <input type="text" id="shipping-name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="shipping-address">Street Address *</label>
+              <input type="text" id="shipping-address" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="shipping-city">City *</label>
+                <input type="text" id="shipping-city" required />
+              </div>
+
+              <div class="form-group">
+                <label for="shipping-state">State *</label>
+                <input type="text" id="shipping-state" required />
+              </div>
+
+              <div class="form-group">
+                <label for="shipping-zip">ZIP Code *</label>
+                <input type="text" id="shipping-zip" required />
+              </div>
+            </div>
+
+            <h2>Payment Information</h2>
+
+            <div class="form-group">
+              <label for="card-number">Card Number *</label>
+              <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="card-expiry">Expiry Date *</label>
+                <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required />
+              </div>
+
+              <div class="form-group">
+                <label for="card-cvv">CVV *</label>
+                <input type="text" id="card-cvv" placeholder="123" maxlength="3" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn checkout-submit-btn">Place Order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Library(). All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

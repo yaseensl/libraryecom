@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="login.html" id="login-link">Login</a></li>
+        </ul>
+        <div id="logout-container"></div>
+      </nav>
+    </header>
+
+    <div class="profile-dropdown">
+      <img src="img/profile-placeholder.png" alt="Profile Icon" class="profile-icon" />
+      <ul class="profile-menu">
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="logout.html">Logout</a></li>
+      </ul>
+    </div>
+
+    <main>
+      <h1>Your Profile</h1>
+      <div class="profile-card">
+        <img src="img/profile-placeholder.png" alt="Profile Picture" class="profile-pic">
+        <p><strong>Name:</strong> <span id="profile-username"></span></p>
+        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+        <p><strong>Member since:</strong> <span id="profile-member-since"></span></p>
+      </div>
+    </main>
+
+    <script>
+        // ======UTILITY FUNCTIONS======
+        function getUsers() {
+            return JSON.parse(localStorage.getItem("users")) || [];
+        }
+
+        function getCurrentUser() {
+            return localStorage.getItem("currentUser");
+        }
+
+        // ======LOAD CURRENT USER DATA======
+        const users = getUsers();
+
+        if (!currentUser) {
+            alert("You must be logged in to access your profile.");
+            window.location.href = "login.html";
+        }
+
+        const user = users.find(u => u.username === currentUser);
+
+        if (!user) {
+            alert("User not found. Please log in again.");
+            localStorage.removeItem("currentUser");
+            window.location.href = "login.html";
+        }
+
+        // Populate profile info dynamically
+        document.getElementById("profile-username").textContent = user.username;
+        document.getElementById("profile-email").textContent = user.email;
+        document.getElementById("profile-member-since").textContent = user.memberSince || "N/A";
+
+    </script>
+
+  </body>
+</html>
